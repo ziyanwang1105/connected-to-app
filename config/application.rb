@@ -42,7 +42,7 @@ module FullStackProjectLinkedinClone
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_authdemo_session',
+      key: '_connected_to_session',
       same_site: :lax,
       secure: Rails.env.production?
   end
