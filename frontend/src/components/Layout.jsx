@@ -12,16 +12,18 @@ const Layout = props => {
     const navigate = useNavigate()
     const frontPage = () =>{
         return (
-            <>
-                <h1>Welcome to your professional community</h1>
+            <div className='frontPage'>
+                <h2>Welcome to your professional community</h2>
 
                 <SessionForm sessionState={'login'}/>
-            </>
+            </div>
         )
     }
     useEffect(()=>{
-        if(currentUser) navigate(`/users/${currentUser.id}`)
-    },[currentUser])
+        if(currentUser) {
+            navigate(`/users/${currentUser.id}`);
+        }
+    }, [currentUser,navigate])
     return (
       <div className='layout'>
         <NavBar />

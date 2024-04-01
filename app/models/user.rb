@@ -17,8 +17,6 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   validates :email, presence: true, uniqueness: true
-  validates :open_to_work, inclusion: { in: [ true, false ] }
-  validates :heading, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
   def self.find_by_credentials(email, password)

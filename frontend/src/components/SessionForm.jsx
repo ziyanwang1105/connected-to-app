@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './SessionForm.css';
 import { useState } from 'react';
-import { createUser, loginUser, selectCurrentUser } from '../store/sessionReducer';
-import { useNavigate } from 'react-router-dom';
+import { createUser, loginUser } from '../store/sessionReducer';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const SessionForm = ({sessionState}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
@@ -14,15 +15,16 @@ const SessionForm = ({sessionState}) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (sessionState === 'signup') {
-          dispatch(createUser({ email, password, heading: "Needs a heading", openToWork:"false" }))
-            .then(()=> navigate(`/users/${useSelector(selectCurrentUser).id}`))
+            console.log('here')
+          dispatch(createUser({ email, password }))
+            .then(()=> navigate(`/`))
             .catch(async res =>{
               let data = await res.json();
               setErrors(data);
             });
         } else {
           dispatch(loginUser({ email, password }))
-            .then(()=> navigate(`/users/${useSelector(selectCurrentUser).id}`))
+            .then(()=> navigate(`/`))
             .catch(async res => {
               let data = await res.json();
               setErrors(data.errors);

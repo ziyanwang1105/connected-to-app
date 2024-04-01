@@ -14,6 +14,7 @@ const NavBar = props =>{
         const handleLogOut = e=>{
             dispatch(logoutUser())
             navigate('/')
+
         }
         if (currentUser) {
           return (
