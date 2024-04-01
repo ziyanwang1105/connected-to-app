@@ -58,7 +58,7 @@ export const loginUser = sessionInfo => (dispatch, getState) => (
   );
 
 //SELECTORS
-export const selectCurrentUser = state => state.session;
+export const selectCurrentUser = state => state.sessions;
 //REDUCER
 const initialState = JSON.parse(sessionStorage.getItem('currentUser'));
 
