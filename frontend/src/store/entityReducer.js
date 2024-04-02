@@ -3,7 +3,8 @@ import profileReducer from "./profileReducer";
 import userReducer from "./userReducer";
 
 const entitiesReducer = combineReducers({
-    users: userReducer
+    users: userReducer,
+    profile: profileReducer
 })
 
 

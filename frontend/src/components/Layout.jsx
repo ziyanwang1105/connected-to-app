@@ -12,8 +12,8 @@ const Layout = props => {
     const currentUser = useSelector(selectCurrentUser)
     const dispatch = useDispatch()
     useEffect(()=>{
-      dispatch(fetchAllUsers())
-    },[])
+      if(currentUser)dispatch(fetchAllUsers())
+    },[currentUser])
     // const allUsers = useSelector(selectUsers)
     const frontPage = () =>{
         return (
