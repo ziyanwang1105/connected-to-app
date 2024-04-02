@@ -36,17 +36,19 @@ const SessionForm = ({sessionState}) => {
             <div className='session-content'>
                 <h2>{sessionState}</h2>
                 <form onSubmit={handleSubmit}>
-                <input
+                  <label >Email:</label>
+                  <input
                     placeholder='email'
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                />
-                <input
+                  />
+                  <label >Password:</label>
+                  <input
                     placeholder='Password'
                     type='password'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                />
+                  />
                 <input type='submit' value={sessionState} />
                 </form>
                 {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
