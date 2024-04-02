@@ -2,11 +2,16 @@
 
 //TYPES
 export const GETALLUSERS = 'users/GETALLUSERS'
+export const GETUSER = 'users/GETUSERS'
 //ACTION CREATORS
 
 export const getAllUsers = users => ({
     type: GETALLUSERS,
     users
+})
+export const getUser = user => ({
+    type: GETUSER,
+    user
 })
 //THUNK ACTION CREATORS
 
@@ -15,12 +20,13 @@ export const fetchAllUsers = ()=>(dispatch, getState)=> (
         .then(res => res.json())
         .then(data => dispatch(getAllUsers(data)))
 )
+export const fetchUser = (userId)=> (dispatch, getState) => (
+    fetch(`/api/users/${userId}`)
+        .then(res=> res.json())
+        .then(data => console.log(data))
+)
 //SELECTORS
 export const selectUsers = state => Object.values(state.users)
-export const selectUser = (userId) => state => {
-    const user = state.users[userId];
-    return user ? user : null
-}
 //REDUCER
 const userReducer = (state={}, action) => {
     switch(action.type){
