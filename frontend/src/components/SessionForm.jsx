@@ -17,14 +17,14 @@ const SessionForm = ({sessionState}) => {
         if (sessionState === 'signup') {
             console.log('here')
           dispatch(createUser({ email, password }))
-            .then(()=> navigate(`/`))
+            .then((user)=> navigate(`/users/${user.id}`))
             .catch(async res =>{
               let data = await res.json();
               setErrors(data);
             });
         } else {
           dispatch(loginUser({ email, password }))
-            .then(()=> navigate(`/`))
+            .then((user)=> navigate(`/users/${user.id}`))
             .catch(async res => {
               let data = await res.json();
               setErrors(data.errors);

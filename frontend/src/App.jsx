@@ -13,7 +13,7 @@ function App() {
   }, {
     path: '/signup', element: <SessionForm sessionState={'signup'} />
   }, {
-    path: '/users', element: <ProfilePage />, children: [{
+    path: '/users', element: <Layout />, children: [{
       path: ':sub', element: <ProfilePage />
     }]
   }])

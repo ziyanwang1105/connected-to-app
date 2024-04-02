@@ -19,11 +19,6 @@ const Layout = props => {
             </div>
         )
     }
-    useEffect(()=>{
-        if(currentUser) {
-            navigate(`/users/${currentUser.id}`);
-        }
-    }, [currentUser,navigate])
     return (
       <div className='layout'>
         <NavBar />

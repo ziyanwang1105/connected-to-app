@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './ProfilePage.css';
-import NavBar from './NavBar';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/sessionReducer';
 import { useEffect } from 'react';
@@ -16,7 +15,6 @@ const ProfilePage = props => {
     }, [navigate,currentUser])
     return (
         <>
-            <NavBar />
             <h2>Welcome to Profile Page</h2>
         </>
     );

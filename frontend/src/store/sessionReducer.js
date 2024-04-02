@@ -27,6 +27,7 @@ export const createUser = userInfo => (dispatch, getState) => (
         .then(data => {
             sessionStorage.setItem('currentUser', JSON.stringify(data.user));
             dispatch(createSession(data.user));
+            return data.user;
         })
 );
 
@@ -42,6 +43,7 @@ export const loginUser = sessionInfo => (dispatch, getState) => (
       .then(data => {
         sessionStorage.setItem('currentUser', JSON.stringify(data.user));
         dispatch(createSession(data.user));
+        return data.user;
       })
   );
 
