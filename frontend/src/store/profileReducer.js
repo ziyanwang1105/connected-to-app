@@ -27,3 +27,8 @@ export const createProfileT = profileInfo => (dispatch, getState)=> (
 //SELECTORS
 
 //REDUCER
+const profileReducer = (state, action)=>{
+
+};
+
+export default profileReducer;
