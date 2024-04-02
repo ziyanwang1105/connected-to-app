@@ -3,7 +3,8 @@ class Api::ProfilesController < ApplicationController
 
     def create
         @profile = Profile.new(profile_params)
-        if profile.save
+        if @profile.save
+            @user = @profile.user
             render 'api/users/show'
         else
             render json: @profile.errors.full_messages, status: 422
@@ -13,6 +14,7 @@ class Api::ProfilesController < ApplicationController
     def update
         @profile = Profile.find_by(id: params[:id])
         if @profile && @profile.update(profile_params)
+            @user = @profile.user
             render 'api/users/show'
         else
             render json: @profile.errors.full_messages, status: 422
