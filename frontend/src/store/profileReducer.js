@@ -1,5 +1,5 @@
 import { postProfile } from "../utils/profileApiUtils"
-
+import { createSelector } from 'reselect'
 
 //TYPES
 export const CREATEPROFILE = 'profile/CREATEPROFILE'
@@ -49,7 +49,8 @@ export const fetchProfile = userId => (dispatch, getState) => (
 )
 
 //SELECTORS
-export const profileSelector = state => Object.values(state.entities.profile)
+export const entitiesSelector = state => state.entities;
+export const profileSelector = createSelector([entitiesSelector], entities=> entities.profile)
 //REDUCER
 const profileReducer = (state={}, action)=>{
     switch(action.type){

@@ -1,0 +1,10 @@
+.circleIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    line-height: 100px;
+    text-align: center;
+}

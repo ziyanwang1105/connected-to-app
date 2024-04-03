@@ -2,7 +2,8 @@ import './App.css'
 import Layout from './components/Layout'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import SessionForm from './components/SessionForm'
-import ProfilePage from './components/ProfilePage'
+import ProfilePage from './components/profilePage/ProfilePage'
+
 
 function App() {
 
