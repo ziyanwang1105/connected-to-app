@@ -3,14 +3,19 @@ import { postProfile } from "../utils/profileApiUtils"
 
 //TYPES
 export const CREATEPROFILE = 'profile/CREATEPROFILE'
+export const SHOWPROFILE = 'profile/SHOWPROFILE'
 
 //ACTION CREATORS
 export const createProfile = profileInfo => ({
     type: CREATEPROFILE,
     profileInfo
 })
+export const showProfile = profileInfo => ({
+    type: SHOWPROFILE,
+    profileInfo
+})
 //THUNK ACTION CREATORS
-export const createProfileT = profileInfo => (dispatch, getState)=> (
+export const createProfilePage = profileInfo => (dispatch, getState)=> (
     postProfile(profileInfo)
         .then(res =>{
             if(res.ok){
@@ -20,16 +25,38 @@ export const createProfileT = profileInfo => (dispatch, getState)=> (
             }
         })
         .then(data =>{
-            dispatch()
+            const profile = data.profile
+            dispatch(showProfile(profile))
+        })
+)
+export const fetchProfile = userId => (dispatch, getState) => (
+    fetch(`/api/users/${userId}`)
+        .then(res =>{
+            if(res.ok){
+                return res.json();
+            } else {
+                throw res;
+            }
+        })
+        .then(data => {
+            const profile = data.profile
+            if(profile){
+                dispatch(showProfile(profile))
+            }else{
+                throw new Error('There is no profile')
+            }
         })
 )
 
 //SELECTORS
-
+export const profileSelector = state => Object.values(state.entities.profile)
 //REDUCER
 const profileReducer = (state={}, action)=>{
     switch(action.type){
-
+        case( CREATEPROFILE ):
+            return action.profileInfo;
+        case (SHOWPROFILE):
+            return action.profileInfo;
         default:
             return state;
     }

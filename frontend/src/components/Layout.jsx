@@ -11,9 +11,9 @@ import { useEffect } from 'react';
 const Layout = props => {
     const currentUser = useSelector(selectCurrentUser)
     const dispatch = useDispatch()
-    useEffect(()=>{
-      if(currentUser)dispatch(fetchAllUsers())
-    },[currentUser])
+    // useEffect(()=>{
+    //   if(currentUser)dispatch(fetchAllUsers())
+    // },[currentUser])
     // const allUsers = useSelector(selectUsers)
     const frontPage = () =>{
         return (
