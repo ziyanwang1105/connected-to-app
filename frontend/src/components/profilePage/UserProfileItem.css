@@ -13,10 +13,8 @@
     font-size: 24px;
     line-height: 100px;
     text-align: center;
-    position: fixed;
-    top: 45vh;
-    left: 10vh;
-
+    position: absolute;
+    top: 10vh;
 }
 .banner {
     height: 100px;

@@ -15,7 +15,6 @@ const SessionForm = ({sessionState}) => {
     const handleSubmit = e => {
         e.preventDefault();
         if (sessionState === 'signup') {
-            console.log('here')
           dispatch(createUser({ email, password }))
             .then((user)=> navigate(`/users/${user.id}`))
             .catch(async res =>{

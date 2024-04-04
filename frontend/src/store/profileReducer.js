@@ -1,4 +1,4 @@
-import { postProfile } from "../utils/profileApiUtils";
+import { patchProfile, postProfile } from "../utils/profileApiUtils";
 import { createSelector } from 'reselect';
 
 //TYPES
@@ -53,7 +53,18 @@ export const fetchProfile = userId => (dispatch, getState) => (
         })
 )
 export const updateProfilePage = profileData => (dispatch, getState)=>{
-
+    patchProfile(profileData)
+        .then(res =>{
+            if(res.ok){
+                return res.json();
+            } else {
+                throw res;
+            }
+        })
+        .then(data =>{
+            const profile = data.profile
+            dispatch(showProfile(profile))
+        })
 }
 //SELECTORS
 export const entitiesSelector = state => state.entities;
