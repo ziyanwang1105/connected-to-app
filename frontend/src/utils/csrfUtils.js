@@ -12,7 +12,7 @@ export const restoreSession = async () => {
 
     if (options.method.toUpperCase() !== 'GET') {
       options.headers['X-CSRF-Token'] = sessionStorage.getItem('X-CSRF-Token');
-      if (options.method.toUpperCase() === 'POST' && !(options.body instanceof FormData)) {
+      if (['POST', 'PATCH'].includes(options.method.toUpperCase()) && !(options.body instanceof FormData)) {
         options.headers['Content-Type'] = 'application/json';
       }
     }

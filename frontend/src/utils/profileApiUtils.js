@@ -6,3 +6,6 @@ export const postProfile = profileInfo => (
         body: JSON.stringify(profileInfo)
     })
 );
+ export const  patchProfile = profileData => (
+    csrfFetch(`api/profiles/${profileData.id}`)
+ )

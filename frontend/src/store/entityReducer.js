@@ -7,5 +7,5 @@ const entitiesReducer = combineReducers({
     profile: profileReducer
 });
 
-export const entitiesSelector = state => state.entities;
+
 export default entitiesReducer

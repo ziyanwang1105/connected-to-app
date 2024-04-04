@@ -1,0 +1,10 @@
+.profile-page{
+    display: flex;
+    flex-direction: row;
+}
+.profile-page > * {
+    border : 1px solid grey;
+}
+.left-bar{
+    width: 80%;
+}
