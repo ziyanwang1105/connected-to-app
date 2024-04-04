@@ -1,3 +1,9 @@
+.user-profile-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
 .circleIcon {
     width: 100px;
     height: 100px;
@@ -7,4 +13,17 @@
     font-size: 24px;
     line-height: 100px;
     text-align: center;
+    position: fixed;
+    top: 45vh;
+    left: 10vh;
+
+}
+.banner {
+    height: 100px;
+    width : 100%;
+    background-color: cyan;
+}
+.edit-profile{
+    width:fit-content;
+    align-self: flex-end;
 }

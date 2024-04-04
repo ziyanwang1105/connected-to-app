@@ -13,15 +13,16 @@ const UserProfileItem = ({sub}) =>{
     const profile = useSelector(profileSelector);
     const [modalState, setModalState] = useState(false)
     return(
-        <>
-            <div className='banner'></div>
+        <div className='user-profile-item'>
+            <div className='banner'>banner</div>
             <div className='circleIcon'>Icon</div>
+            <button className='edit-profile'>Edit Basic Profile</button>
             <div className='basic-profile'>
                 <p className='realName'>{`${profile.firstName} ${profile.lastName}`}</p>
                 <p className='heading'>{profile.heading}</p>
                 {profile.openToWork && <p className='workStatus'>Open to Work</p>}
             </div>
-        </>
+        </div>
     );
 };
 
