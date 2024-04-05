@@ -11,6 +11,7 @@ const UserProfileItem = ({sub, currentUser}) =>{
         dispatch(fetchProfile(sub));
     },[sub]);
     const [modalState, setModalState] = useState(null)
+
     const button = ()=>{
         if(profile.userId === currentUser.id){
             return(
@@ -26,6 +27,7 @@ const UserProfileItem = ({sub, currentUser}) =>{
             };
         }
     };
+
     const basicProfile = ()=>{
         if(Object.keys(profile).length !==0){
             return (

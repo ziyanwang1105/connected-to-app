@@ -16,14 +16,14 @@ const SessionForm = ({sessionState}) => {
         e.preventDefault();
         if (sessionState === 'signup') {
           dispatch(createUser({ email, password }))
-            .then((user)=> navigate(`/users/${user.id}`))
+            .then((data)=> navigate(`/users/${data.id}`))
             .catch(async res =>{
               let data = await res.json();
               setErrors(data);
             });
         } else {
           dispatch(loginUser({ email, password }))
-            .then((user)=> navigate(`/users/${user.id}`))
+            .then((data)=> navigate(`/users/${data.id}`))
             .catch(async res => {
               let data = await res.json();
               setErrors(data.errors);

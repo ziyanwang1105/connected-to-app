@@ -43,7 +43,7 @@ export const fetchProfile = userId => (dispatch, getState) => (
             if(profile){
                 dispatch(showProfile(profile))
             }else{
-                throw new Error('There is no profile')
+                dispatch(showProfile({}))
             }
         })
 )
