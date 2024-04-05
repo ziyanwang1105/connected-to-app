@@ -4,7 +4,6 @@ import { createSelector } from 'reselect';
 //TYPES
 export const CREATEPROFILE = 'profile/CREATEPROFILE';
 export const SHOWPROFILE = 'profile/SHOWPROFILE';
-export const UPDATEPROFILE = 'profile/UPDATEPROFILE';
 
 //ACTION CREATORS
 export const createProfile = profileInfo => ({
@@ -15,10 +14,6 @@ export const showProfile = profileInfo => ({
     type: SHOWPROFILE,
     profileInfo
 });
-export const updateProfile = profileData => ({
-    type: UPDATEPROFILE,
-    profileData
-})
 //THUNK ACTION CREATORS
 export const createProfilePage = profileInfo => (dispatch, getState)=> (
     postProfile(profileInfo)
@@ -52,7 +47,7 @@ export const fetchProfile = userId => (dispatch, getState) => (
             }
         })
 )
-export const updateProfilePage = profileData => (dispatch, getState)=>{
+export const updateProfilePage = profileData => (dispatch, getState)=>(
     patchProfile(profileData)
         .then(res =>{
             if(res.ok){
@@ -65,7 +60,8 @@ export const updateProfilePage = profileData => (dispatch, getState)=>{
             const profile = data.profile
             dispatch(showProfile(profile))
         })
-}
+)
+
 //SELECTORS
 export const entitiesSelector = state => state.entities;
 export const profileSelector = createSelector([entitiesSelector], entities=> entities.profile)
@@ -77,9 +73,6 @@ const profileReducer = (state={}, action)=>{
             return action.profileInfo;
         case (SHOWPROFILE):
             return action.profileInfo;
-        case (UPDATEPROFILE):
-            nextState = action.profileData
-            return nextState
         default:
             return state;
     }

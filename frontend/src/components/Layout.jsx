@@ -30,9 +30,11 @@ const Layout = props => {
     return (
       <div className='layout'>
         <NavBar />
+        <div className='outlet-background'>
 
-        {!currentUser && frontPage()}
-        <Outlet />
+          {!currentUser && frontPage()}
+          <Outlet />
+        </div>
       </div>
     );
   };

@@ -17,3 +17,8 @@
 .frontPage > img{
     width:50%;
 }
+.outlet-background{
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+}

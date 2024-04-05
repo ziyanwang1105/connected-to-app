@@ -8,7 +8,7 @@ import { createUser, loginUser, logoutUser } from './store/sessionReducer.js'
 import { postUser } from './utils/sessionApiUtils.js'
 import { restoreSession } from './utils/csrfUtils.js'
 import { fetchAllUsers } from './store/userReducer.js'
-import { fetchProfile, profileSelector } from './store/profileReducer.js'
+import { fetchProfile, profileSelector, updateProfilePage } from './store/profileReducer.js'
 
 const initializeApp = () => {
 
@@ -24,6 +24,7 @@ const initializeApp = () => {
     window.fetchAllUser= fetchAllUsers
     window.fetchProfile = fetchProfile
     window.profileSelector = profileSelector
+    window.updateProfilePage = updateProfilePage
   }
 
   ReactDOM.createRoot(document.getElementById('root')).render(
