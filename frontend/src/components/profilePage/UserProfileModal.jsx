@@ -1,23 +1,39 @@
 import { useState } from 'react';
 import './UserProfileModal.css';
-import { updateProfilePage } from '../../store/profileReducer';
+import { createProfilePage, updateProfilePage } from '../../store/profileReducer';
 import { useDispatch } from 'react-redux';
 
-const UserProfileModal = ({modalState, setModalState, profile}) => {
+const UserProfileModal = ({modalState, setModalState, profile, userId}) => {
     const dispatch = useDispatch()
-    const [lastName, setLastName] = useState(profile.lastName)
-    const [firstName, setFirstName] = useState(profile.firstName)
-    const [heading, setHeading] = useState(profile.heading)
-    const [openToWork, setOpenToWork] = useState(profile.openToWork)
+    const [lastName, setLastName] = useState(modalState === 'Edit' ? profile.lastName : '')
+    const [firstName, setFirstName] = useState(modalState === 'Edit' ? profile.firstName : '')
+    const [heading, setHeading] = useState(modalState === 'Edit' ? profile.heading : '')
+    const [openToWork, setOpenToWork] = useState(modalState === 'Edit' ? profile.openToWork : false)
+    const [errors, setErrors] = useState([]);
+
     const handleSubmit = e =>{
         e.preventDefault();
-        dispatch(updateProfilePage({...profile, lastName, firstName, heading, openToWork})).then(()=> setModalState(!modalState))
+        if(modalState === 'Edit'){
+            dispatch(updateProfilePage({...profile, lastName, firstName, heading, openToWork}))
+                .then(()=> setModalState(null))
+                .catch(async res =>{
+                    let data = await res.json();
+                    setErrors(data);
+                  });
+        }else{
+            dispatch(createProfilePage({lastName, firstName, heading, openToWork, userId: userId}))
+                .then(()=> setModalState(null))
+                .catch(async res =>{
+                    let data = await res.json();
+                    setErrors(data);
+                  });
+        }
     }
     return (
         <>
-            <div className='user-profile-modal-background'>
-                <div className='user-profile-modal-content'>
-                    <h3>Edit Profile</h3>
+            <div className='user-profile-modal-background' onClick={e => setModalState(null)}>
+                <div className='user-profile-modal-content' onClick={e => e.stopPropagation()}>
+                    <h3>{modalState === 'Edit' ? 'Edit Profile' : 'Create Profile'}</h3>
                     <form onSubmit={handleSubmit}>
                         <label>Last Name:
                             <input
@@ -44,6 +60,7 @@ const UserProfileModal = ({modalState, setModalState, profile}) => {
                                 onChange={e=>setOpenToWork(!openToWork)}/>
                         </label>
                         <input type="submit" value={'save'} />
+                        {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
 
                     </form>
                 </div>

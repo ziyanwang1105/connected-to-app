@@ -1,5 +1,5 @@
 class Api::ProfilesController < ApplicationController
-    wrap_parameters include: Profile.attribute_names + ['lastName', 'firstName', 'openToWork']
+    wrap_parameters include: Profile.attribute_names + ['lastName', 'firstName', 'openToWork', 'userId']
     before_action :require_logged_in
 
     def create

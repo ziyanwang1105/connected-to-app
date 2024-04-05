@@ -21,7 +21,7 @@ const ProfilePage = props => {
             <div className='profile-page'>
                 <div className='left-bar'>
 
-                    <UserProfileItem sub = {sub}/>
+                    <UserProfileItem sub = {sub} currentUser={currentUser}/>
                 </div>
                 <div className='side-bar'>
                     <p>Side bar component</p>

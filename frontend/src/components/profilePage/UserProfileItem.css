@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    height: fit-content;
 }
 .circleIcon {
     width: 100px;
@@ -14,8 +15,8 @@
     line-height: 100px;
     text-align: center;
     position: absolute;
-    top: 8vh;
-    left: 2vh;
+    top: 30px;
+    left: 5px;
 }
 .banner {
     height: 100px;

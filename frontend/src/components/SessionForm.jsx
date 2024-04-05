@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import './SessionForm.css';
 import { useState } from 'react';
 import { createUser, loginUser } from '../store/sessionReducer';
-import { redirect, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const SessionForm = ({sessionState}) => {
     const dispatch = useDispatch()
