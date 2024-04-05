@@ -6,10 +6,10 @@ import UserProfileModal from './UserProfileModal';
 
 const UserProfileItem = ({sub, currentUser}) =>{
     const dispatch = useDispatch()
+    const profile = useSelector(profileSelector);
     useEffect(()=>{
         dispatch(fetchProfile(sub));
     },[sub]);
-    const profile = useSelector(profileSelector);
     const [modalState, setModalState] = useState(null)
     const button = ()=>{
         if(profile.userId === currentUser.id){
