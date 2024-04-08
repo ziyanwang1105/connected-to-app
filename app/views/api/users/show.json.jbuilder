@@ -8,17 +8,21 @@ if @user.profile
 end
 
 if @user.educations
-  @user.educations.each do |eductaion|
-    json.set! education.id do
-      json.extract! education, :user_id, :school_name, :degree_name, :description, :start_year, :end_year, :id
+  json.educations do
+    @user.educations.each do |education|
+      json.set! education.id do
+        json.extract! education, :user_id, :school_name, :degree_name, :description, :start_year, :end_year, :id
+      end
     end
   end
 end
 
 if @user.experiences
-  @user.experiences.each do |experience|
-    json.set! experience.id do
-      json.extract! experience, :user_id, :company_name, :position, :description, :start_year, :end_year, :id
+  json. experiences do
+    @user.experiences.each do |experience|
+      json.set! experience.id do
+        json.extract! experience, :user_id, :company_name, :position, :description, :start_year, :end_year, :id
+      end
     end
   end
 end
