@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_02_165246) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_08_144816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "educations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "school_name", null: false
+    t.string "degree_name", null: false
+    t.text "description", null: false
+    t.datetime "start_year", null: false
+    t.datetime "end_year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_educations_on_user_id"
+  end
+
+  create_table "experiences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "company_name", null: false
+    t.string "position", null: false
+    t.text "description", null: false
+    t.datetime "start_year", null: false
+    t.datetime "end_year", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false

@@ -20,6 +20,13 @@ class User < ApplicationRecord
   has_one :profile,
     dependent: :destroy
 
+  has_many :educations,
+    dependent: :destroy
+
+  has_many :experiences,
+    dependent: :destroy
+
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if user&.authenticate(password)
