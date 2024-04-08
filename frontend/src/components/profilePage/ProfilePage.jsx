@@ -17,7 +17,6 @@ const ProfilePage = props => {
 
     return (
         <>
-            <h2>Welcome to Profile Page</h2>
             <div className='profile-page'>
                 <div className='left-bar'>
 

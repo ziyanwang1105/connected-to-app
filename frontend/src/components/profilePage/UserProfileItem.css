@@ -22,8 +22,14 @@
     height: 100px;
     width : 100%;
     background-color: cyan;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 .edit-profile{
     width:fit-content;
     align-self: flex-end;
+}
+.basic-profile{
+    padding-left: 10px;
 }
