@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './UserProfileModal.css';
-import { createProfilePage, updateProfilePage } from '../../store/profileReducer';
+import { createProfilePage, updateProfilePage } from '../../../store/profileReducer';
 import { useDispatch } from 'react-redux';
 
 const UserProfileModal = ({modalState, setModalState, profile, userId}) => {

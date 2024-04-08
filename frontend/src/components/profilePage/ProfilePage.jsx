@@ -3,7 +3,8 @@ import './ProfilePage.css';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/sessionReducer';
 import { useEffect } from 'react';
-import UserProfileItem from './UserProfileItem';
+import UserProfileItem from './BasicProfileBox/UserProfileItem';
+import UserEducationBox from './EducationBox/UserEducationBox';
 
 const ProfilePage = props => {
     const { sub } = useParams();
@@ -21,6 +22,7 @@ const ProfilePage = props => {
                 <div className='left-bar'>
 
                     <UserProfileItem sub = {sub} currentUser={currentUser}/>
+                    <UserEducationBox sub = {sub} currentUser = {currentUser} />
                 </div>
                 <div className='side-bar'>
                     <p>Side bar component</p>

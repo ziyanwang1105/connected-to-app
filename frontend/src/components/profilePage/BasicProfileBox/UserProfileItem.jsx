@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './UserProfileItem.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProfile, profileSelector } from '../../store/profileReducer';
+import { fetchProfile, profileSelector } from '../../../store/profileReducer';
 import UserProfileModal from './UserProfileModal';
 
 const UserProfileItem = ({sub, currentUser}) =>{

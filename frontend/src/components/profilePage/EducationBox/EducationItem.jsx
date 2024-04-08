@@ -1,0 +1,1 @@
+import './EducationItem.css';

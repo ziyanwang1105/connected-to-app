@@ -4,6 +4,10 @@
     align-items: flex-start;
     position: relative;
     height: fit-content;
+    border : 1px solid grey;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 15px;
 }
 .circleIcon {
     width: 100px;

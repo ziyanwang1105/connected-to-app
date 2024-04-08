@@ -1,15 +1,13 @@
+import { entitiesSelector } from "../utils/entitiesSelector";
 import { patchProfile, postProfile } from "../utils/profileApiUtils";
 import { createSelector } from 'reselect';
 
 //TYPES
-export const CREATEPROFILE = 'profile/CREATEPROFILE';
+
 export const SHOWPROFILE = 'profile/SHOWPROFILE';
 
 //ACTION CREATORS
-export const createProfile = profileInfo => ({
-    type: CREATEPROFILE,
-    profileInfo
-});
+
 export const showProfile = profileInfo => ({
     type: SHOWPROFILE,
     profileInfo
@@ -42,8 +40,6 @@ export const fetchProfile = userId => (dispatch, getState) => (
             const profile = data.profile
             if(profile){
                 dispatch(showProfile(profile))
-            }else{
-                dispatch(showProfile({}))
             }
         })
 )
@@ -63,14 +59,13 @@ export const updateProfilePage = profileData => (dispatch, getState)=>(
 )
 
 //SELECTORS
-export const entitiesSelector = state => state.entities;
+
 export const profileSelector = createSelector([entitiesSelector], entities=> entities.profile)
+
 //REDUCER
 const profileReducer = (state={}, action)=>{
     const nextState = {...state}
     switch(action.type){
-        case( CREATEPROFILE ):
-            return action.profileInfo;
         case (SHOWPROFILE):
             return action.profileInfo;
         default:
