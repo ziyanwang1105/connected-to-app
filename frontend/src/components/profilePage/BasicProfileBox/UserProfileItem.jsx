@@ -44,11 +44,13 @@ const UserProfileItem = ({sub, currentUser}) =>{
         }
     };
 
+    const initial = Object.keys(profile).length !==0 ? nameInitial(profile.firstName, profile.lastName) : 'icon'
+
     return(
         <>
             <div className='user-profile-item'>
                 <div className='banner'>banner</div>
-                <div className='circleIcon'>Icon</div>
+                <div className='circleIcon'>{initial}</div>
                 {button()}
                 {basicProfile()}
             </div>
@@ -57,5 +59,9 @@ const UserProfileItem = ({sub, currentUser}) =>{
         </>
     );
 };
+
+const nameInitial = (firstName, lastName) => {
+    return firstName[0].toUpperCase() + lastName[0].toUpperCase()
+}
 
 export default UserProfileItem

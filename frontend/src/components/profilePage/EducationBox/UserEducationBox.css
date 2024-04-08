@@ -4,3 +4,12 @@
     margin-top: 10px;
     background-color: white;
 }
+.education-profile > h3{
+    padding-left: 10px;
+}
+.education-list{
+    list-style-type: none;
+}
+.education-list > li{
+    border-bottom: 1px solid gray;
+}
