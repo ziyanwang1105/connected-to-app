@@ -23,17 +23,19 @@ export const fetchAllUsers = ()=>(dispatch, getState)=> (
 export const fetchUser = (userId)=> (dispatch, getState) => (
     fetch(`/api/users/${userId}`)
         .then(res=> res.json())
-        .then(data => dispatch(getUser(user)))
+        .then(data => dispatch(getUser(data.user)))
 )
 //SELECTORS
 export const selectUsers = state => Object.values(state.users)
 //REDUCER
 const userReducer = (state={}, action) => {
+    const nextState = {...state}
     switch(action.type){
         case(GETALLUSERS):
             return action.users;
         case(GETUSER):
-            return null;
+            nextState[action.user.id] = action.user
+            return nextState;
         default:
             return state;
     }

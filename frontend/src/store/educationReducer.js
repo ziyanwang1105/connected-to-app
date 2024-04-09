@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { entitiesSelector } from '../utils/entitiesSelector';
+import { deleteEducation, patchEducation, postEducation } from '../utils/educationApiUtils';
 
 //TYPES
 export const GETEDUCATIONS = 'education/GET_EDUCATIONS';
@@ -33,12 +34,52 @@ export const fetchEducations = userId => (dispatch, getState) =>(
             }
         })
         .then(data =>{
-            const educations = data.educations
+            const educations = data.educations;
             if(educations){
-                dispatch(getEducations(educations))
+                dispatch(getEducations(educations));
             }
         })
-)
+);
+
+export const createEducation = educationInfo => (dispatch, getState) => (
+    postEducation(educationInfo)
+        .then(res =>{
+            if(res.ok){
+                return res.json();
+            } else {
+                throw res;
+            }
+        })
+        .then(data =>{
+            dispatch(showEducation(data));
+        })
+);
+
+export const updateEducation = educationInfo => (dispatch, getState) => (
+    patchEducation(educationInfo)
+        .then(res =>{
+            if(res.ok){
+                return res.json();
+            } else {
+                throw res;
+            }
+        })
+        .then(data =>{
+            dispatch(showEducation(data));
+        })
+);
+
+export const removeEducation = educationId => (dispatch, getState) => (
+    deleteEducation(educationId)
+        .then(res =>{
+            if(res.ok){
+                dispatch(destroyEducation(educationId))
+            }else{
+                throw res;
+            }
+        })
+);
+
 //SELECTORS
 export const educationsSelector = createSelector([entitiesSelector], entities=> entities.educations)
 //REDUCER
@@ -49,6 +90,9 @@ const educationReducer = (state={}, action)=>{
             return action.educationData;
         case(SHOWEDUCATION):
             nextState[educationInfo.id] = educationInfo;
+            return nextState;
+        case(DESTROYEDUCATION):
+            delete nextState[action.educationId];
             return nextState;
         default:
             return state;

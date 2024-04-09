@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { educationsSelector, fetchEducations } from '../../../store/educationReducer';
 import './UserEducationBox.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import EducationItem from './EducationItem';
 
 const UserEducationBox = ({sub, currentUser}) => {
     const dispatch = useDispatch()
     const educations = useSelector(educationsSelector)
+    const [eduModalState, setEduModalState] = useState(null)
     useEffect(()=>{
         dispatch(fetchEducations(sub));
     },[sub]);

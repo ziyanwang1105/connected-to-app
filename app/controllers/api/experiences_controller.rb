@@ -5,7 +5,7 @@ class Api::ExperiencesController < ApplicationController
         @experience = Experience.new(experience_params)
         if @experience.save
             @user = @experience.user
-            render 'api/users/show'
+            render :show
         else
             render json: @experience.errors.full_messages, status: 422
         end
@@ -15,7 +15,7 @@ class Api::ExperiencesController < ApplicationController
         @experience = Experience.find_by(id: params[:id])
         if @experience && @experience.update(experience_params)
             @user = @experience.user
-            render 'api/users/show'
+            render :show
         else
             render json: @experience.errors.full_messages, status: 422
         end

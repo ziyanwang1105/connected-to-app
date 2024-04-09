@@ -5,7 +5,7 @@ class Api::EducationsController < ApplicationController
         @education = Education.new(education_params)
         if @education.save
             @user = @education.user
-            render 'api/users/show'
+            render :show
         else
             render json: @education.errors.full_messages, status: 422
         end
@@ -15,7 +15,7 @@ class Api::EducationsController < ApplicationController
         @education = Education.find_by(id: params[:id])
         if @education && @education.update(education_params)
             @user = @education.user
-            render 'api/users/show'
+            render :show
         else
             render json: @education.errors.full_messages, status: 422
         end

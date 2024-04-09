@@ -1,5 +1,9 @@
 json.user do
   json.extract! @user, :id, :email, :created_at
+  if @user.profile
+    json.extract! @user.profile, :last_name, :first_name
+  end
+
 end
 if @user.profile
   json.profile do
@@ -18,7 +22,7 @@ if @user.educations
 end
 
 if @user.experiences
-  json. experiences do
+  json.experiences do
     @user.experiences.each do |experience|
       json.set! experience.id do
         json.extract! experience, :user_id, :company_name, :position, :description, :start_year, :end_year, :id
