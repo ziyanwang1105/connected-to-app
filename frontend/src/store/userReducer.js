@@ -1,4 +1,7 @@
 
+import { createSelector } from 'reselect';
+import { entitiesSelector } from '../utils/entitiesSelector';
+import { selectCurrentUser } from './sessionReducer';
 
 //TYPES
 export const GETALLUSERS = 'users/GETALLUSERS'
@@ -26,7 +29,17 @@ export const fetchUser = (userId)=> (dispatch, getState) => (
         .then(data => dispatch(getUser(data.user)))
 )
 //SELECTORS
-export const selectUsers = state => Object.values(state.users)
+export const selectUsers = createSelector([entitiesSelector], entities=> entities.users)
+export const selectOtherUsers = createSelector([selectUsers, selectCurrentUser],
+    (users, currentUser)=>{
+        const otherUsers = [];
+        for(const key in users){
+            if(Number(key) !== currentUser.id && users[key].hasOwnProperty('lastName')){
+                otherUsers.push(users[key]);
+            };
+        };
+        return otherUsers
+    })
 //REDUCER
 const userReducer = (state={}, action) => {
     const nextState = {...state}

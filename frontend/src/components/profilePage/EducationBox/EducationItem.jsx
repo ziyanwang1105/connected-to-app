@@ -1,3 +1,4 @@
+import { transformDate } from '../../../utils/profilePageHelper';
 import './EducationItem.css';
 
 
@@ -13,11 +14,6 @@ const EducationItem = ({education}) =>{
     );
 };
 
-const transformDate = (time) =>{
-    let timeStamp = new Date(time)
-    let month = timeStamp.toLocaleString('default', { month: 'short' })
-    let year = timeStamp.getFullYear()
-    return `${month} ${year}`
-}
+
 
 export default EducationItem

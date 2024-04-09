@@ -1,20 +1,16 @@
 import { Outlet } from 'react-router-dom';
 import './Layout.css'
 import NavBar from './NavBar';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/sessionReducer';
 import SessionForm from './SessionForm';
-import { fetchAllUsers, selectUsers } from '../store/userReducer';
-import { useEffect } from 'react';
+
 
 
 const Layout = props => {
     const currentUser = useSelector(selectCurrentUser)
-    const dispatch = useDispatch()
-    // useEffect(()=>{
-    //   if(currentUser)dispatch(fetchAllUsers())
-    // },[currentUser])
-    // const allUsers = useSelector(selectUsers)
+
+
     const frontPage = () =>{
         return (
           <div className='frontPage'>

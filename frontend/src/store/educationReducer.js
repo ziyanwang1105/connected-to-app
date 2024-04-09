@@ -37,6 +37,8 @@ export const fetchEducations = userId => (dispatch, getState) =>(
             const educations = data.educations;
             if(educations){
                 dispatch(getEducations(educations));
+            }else{
+                dispatch(getEducations({}))
             }
         })
 );

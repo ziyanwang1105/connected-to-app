@@ -7,7 +7,7 @@ import EducationItem from './EducationItem';
 const UserEducationBox = ({sub, currentUser}) => {
     const dispatch = useDispatch()
     const educations = useSelector(educationsSelector)
-    const [eduModalState, setEduModalState] = useState(null)
+    // const [eduModalState, setEduModalState] = useState(null)
     useEffect(()=>{
         dispatch(fetchEducations(sub));
     },[sub]);

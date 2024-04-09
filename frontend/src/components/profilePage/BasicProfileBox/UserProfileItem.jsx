@@ -3,6 +3,7 @@ import './UserProfileItem.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProfile, profileSelector } from '../../../store/profileReducer';
 import UserProfileModal from './UserProfileModal';
+import { nameInitial } from '../../../utils/profilePageHelper';
 
 const UserProfileItem = ({sub, currentUser}) =>{
     const dispatch = useDispatch()
@@ -60,8 +61,5 @@ const UserProfileItem = ({sub, currentUser}) =>{
     );
 };
 
-const nameInitial = (firstName, lastName) => {
-    return firstName[0].toUpperCase() + lastName[0].toUpperCase()
-}
 
 export default UserProfileItem
