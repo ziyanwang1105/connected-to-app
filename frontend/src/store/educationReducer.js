@@ -53,7 +53,8 @@ export const createEducation = educationInfo => (dispatch, getState) => (
             }
         })
         .then(data =>{
-            dispatch(showEducation(data));
+            dispatch(showEducation(data.education));
+            return data.education
         })
 );
 
@@ -68,6 +69,7 @@ export const updateEducation = educationInfo => (dispatch, getState) => (
         })
         .then(data =>{
             dispatch(showEducation(data));
+            return data.education
         })
 );
 
@@ -91,7 +93,7 @@ const educationReducer = (state={}, action)=>{
         case(GETEDUCATIONS):
             return action.educationData;
         case(SHOWEDUCATION):
-            nextState[educationInfo.id] = educationInfo;
+            nextState[action.educationInfo.id] = action.educationInfo;
             return nextState;
         case(DESTROYEDUCATION):
             delete nextState[action.educationId];
