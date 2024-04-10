@@ -7,14 +7,14 @@ export const postEducation = educationInfo => (
     })
 );
 export const  patchEducation = educationData => (
-    csrfFetch(`/api/profiles/${educationData.id}`,{
+    csrfFetch(`/api/educations/${educationData.id}`,{
         method: 'PATCH',
         body: JSON.stringify(educationData)
     })
 )
 
 export const deleteEducation = educationId =>(
-    csrfFetch(`/api/profiles/${educationId}`, {
+    csrfFetch(`/api/educations/${educationId}`, {
         method: 'DELETE'
       })
 )

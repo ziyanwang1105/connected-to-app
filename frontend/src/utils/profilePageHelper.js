@@ -8,3 +8,14 @@ export const transformDate = (time) =>{
     let year = timeStamp.getFullYear()
     return `${month} ${year}`
 }
+
+export const transformDateModal = (time) =>{
+    if(!time) return time;
+    let timeStamp = new Date(time)
+    let year = timeStamp.getFullYear();
+    let month = ('0' + (timeStamp.getMonth() + 1)).slice(-2);
+    let day = ('0' + timeStamp.getDate()).slice(-2);
+    let formattedDate = year + '-' + month + '-' + day;
+    return formattedDate;
+
+}

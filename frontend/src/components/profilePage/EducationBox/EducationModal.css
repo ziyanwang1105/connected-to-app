@@ -3,7 +3,7 @@
     width: 100vw;
     background-color: rgba(25,25,25,.5);
     padding: 20px;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     z-index: 101;
@@ -12,7 +12,7 @@
   .education-modal-content {
     height: fit-content;
     width: 50vw;
-    position: absolute;
+    position: fixed;
     top: 25vh;
     left: 25vw;
     background-color: white;

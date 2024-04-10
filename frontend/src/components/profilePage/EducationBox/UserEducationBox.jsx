@@ -28,13 +28,13 @@ const UserEducationBox = ({sub, currentUser}) => {
                     {addButton()}
                 </div>
                 <ul className='education-list'>
-                    {Object.values(educations).map((education, idx)=> (<li key = {idx}>
-                        <EducationItem education = {education} setEduModalState= {setEduModalState} setEducation={setEducation} />
+                    {Object.values(educations).map((edu, idx)=> (<li key = {idx}>
+                        <EducationItem education = {edu} setEduModalState= {setEduModalState} setEducation={setEducation} currentUser={currentUser} sub={sub} />
                     </li>))}
 
                 </ul>
             </div>
-            {eduModalState && <EducationModal eduModalState = {eduModalState} setEduModalState= {setEduModalState} userId ={currentUser.id} education={education}/>}
+            {eduModalState && <EducationModal eduModalState = {eduModalState} setEduModalState= {setEduModalState} userId ={currentUser.id} education={education} setEducation={setEducation} />}
         </>
     );
 };

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './EducationModal.css'
 import { useDispatch } from 'react-redux';
-import { createEducation, updateEducation } from '../../../store/educationReducer';
+import { createEducation, removeEducation, updateEducation } from '../../../store/educationReducer';
+import { transformDateModal } from '../../../utils/profilePageHelper';
 
-const EducationModal = ({eduModalState, setEduModalState, education, userId}) => {
+const EducationModal = ({eduModalState, setEduModalState, education, setEducation, userId}) => {
+
     const dispatch = useDispatch()
     const [schoolName, setSchoolName] = useState(eduModalState === 'Edit' ? education.schoolName : '');
     const [degreeName, setDegreeName] = useState(eduModalState === 'Edit' ? education.degreeName : '');
@@ -12,27 +14,46 @@ const EducationModal = ({eduModalState, setEduModalState, education, userId}) =>
     const [endYear, setEndYear] = useState(eduModalState === 'Edit' ? education.endYear : '');
     const [errors, setErrors] = useState([]);
 
+    const handleCloseModal = e =>{
+        setEduModalState(null)
+        setEducation({})
+    }
+
     const handleSubmit = e =>{
         e.preventDefault();
         if(eduModalState === 'Edit'){
             dispatch(updateEducation({...education, schoolName, degreeName, description, startYear, endYear}))
-                .then(()=> setEduModalState(null))
+                .then(()=> handleCloseModal())
                 .catch(async res =>{
                     let data = await res.json();
                     setErrors(data);
                   });
         }else{
             dispatch(createEducation({schoolName, degreeName, description, startYear, endYear, userId: userId}))
-                .then(()=> setEduModalState(null))
+                .then(()=> handleCloseModal())
                 .catch(async res =>{
                     let data = await res.json();
                     setErrors(data);
                   });
         }
     }
+
+    const handleDeleteClick = e =>{
+        e.preventDefault()
+        dispatch(removeEducation(education.id))
+            .then(()=> handleCloseModal())
+    }
+    const deleteButton = ()=>{
+        if(eduModalState === 'Edit'){
+            return(
+                <button onClick={handleDeleteClick}>Delete</button>
+            )
+        }
+    }
+
     return (
         <>
-            <div className='education-modal-background' onClick={e => setEduModalState(null)}>
+            <div className='education-modal-background' onClick={handleCloseModal}>
                 <div className='education-modal-content' onClick={e => e.stopPropagation()}>
                     <h3>{eduModalState === 'Add' ? 'Add Education' : 'Edit Education'}</h3>
                     <form onSubmit={handleSubmit}>
@@ -59,18 +80,19 @@ const EducationModal = ({eduModalState, setEduModalState, education, userId}) =>
                         <label >
                             Start Year:
                             <input type="date"
-                                value={startYear}
+                                value={transformDateModal(startYear)}
                                 onChange={e=>setStartYear(e.target.value)} />
                         </label>
                         <label >
                             End Year:
                             <input type="date"
-                                value={endYear}
+                                value={transformDateModal(endYear)}
                                 onChange={e=>setEndYear(e.target.value)} />
                         </label>
                         <input type="submit" value={'save'} />
                         {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
                     </form>
+                    {deleteButton()}
                 </div>
             </div>
         </>

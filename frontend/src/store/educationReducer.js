@@ -68,7 +68,7 @@ export const updateEducation = educationInfo => (dispatch, getState) => (
             }
         })
         .then(data =>{
-            dispatch(showEducation(data));
+            dispatch(showEducation(data.education));
             return data.education
         })
 );
