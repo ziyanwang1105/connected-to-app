@@ -39,4 +39,4 @@ const UserEducationBox = ({sub, currentUser}) => {
     );
 };
 
-export default UserEducationBox
+export default UserEducationBox;

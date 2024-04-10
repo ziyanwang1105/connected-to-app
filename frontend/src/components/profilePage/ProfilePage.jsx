@@ -7,6 +7,7 @@ import UserProfileItem from './BasicProfileBox/UserProfileItem';
 import UserEducationBox from './EducationBox/UserEducationBox';
 import { fetchAllUsers, selectOtherUsers } from '../../store/userReducer';
 import SideBarItem from './SideBarItem';
+import UserExperienceBox from './ExperienceBox/UserExperienceBox';
 
 
 const ProfilePage = props => {
@@ -30,6 +31,7 @@ const ProfilePage = props => {
 
                     <UserProfileItem sub = {sub} currentUser={currentUser}/>
                     <UserEducationBox sub = {sub} currentUser = {currentUser} />
+                    <UserExperienceBox sub={sub} currentUser={currentUser} />
                 </div>
                 <div className='side-bar'>
                     <p>People you may know</p>

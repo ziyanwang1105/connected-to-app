@@ -1,0 +1,29 @@
+.experience-profile{
+    border : 1px solid grey;
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: white;
+
+}
+.experience-list{
+    list-style-type: none;
+
+}
+.experience-list > li{
+    border-bottom: 1px solid gray;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.experience-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+}
+.add-experience-button{
+    margin-right: 10px;
+}
