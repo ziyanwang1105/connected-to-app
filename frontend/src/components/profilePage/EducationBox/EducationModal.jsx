@@ -56,7 +56,7 @@ const EducationModal = ({eduModalState, setEduModalState, education, setEducatio
             <div className='education-modal-background' onClick={handleCloseModal}>
                 <div className='education-modal-content' onClick={e => e.stopPropagation()}>
                     <h3>{eduModalState === 'Add' ? 'Add Education' : 'Edit Education'}</h3>
-                    <form onSubmit={handleSubmit}>
+                    <form className='education-form' onSubmit={handleSubmit}>
                         <label>School Name:
                             <input
                                 type="text"
@@ -72,8 +72,7 @@ const EducationModal = ({eduModalState, setEduModalState, education, setEducatio
                         </label>
 
                         <label>Description:
-                            <input
-                                type="textarea"
+                            <textarea
                                 value={description}
                                 onChange={e=>setDescription(e.target.value)} />
                         </label>
@@ -89,10 +88,13 @@ const EducationModal = ({eduModalState, setEduModalState, education, setEducatio
                                 value={transformDateModal(endYear)}
                                 onChange={e=>setEndYear(e.target.value)} />
                         </label>
-                        <input type="submit" value={'save'} />
+                        <div className='buttons-bar'>
+                            {deleteButton()}
+                            <input type="submit" value={'Save'} />
+                        </div>
                         {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
                     </form>
-                    {deleteButton()}
+
                 </div>
             </div>
         </>

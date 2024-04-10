@@ -33,6 +33,7 @@
 .edit-profile{
     width:fit-content;
     align-self: flex-end;
+    margin-right: 10px;
 }
 .basic-profile{
     padding-left: 10px;

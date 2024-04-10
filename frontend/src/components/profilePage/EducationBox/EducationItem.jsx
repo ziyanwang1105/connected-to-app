@@ -12,7 +12,7 @@ const EducationItem = ({education, setEduModalState, setEducation, currentUser, 
     const editButton = ()=>{
         if(currentUser.id === Number(sub)){
             return (
-                <button onClick={handleEditClick}>Edit</button>
+                <button className='education-edit-button' onClick={handleEditClick}>Edit</button>
             );
         };
     };
@@ -20,10 +20,10 @@ const EducationItem = ({education, setEduModalState, setEducation, currentUser, 
     return(
         <>
             <div className='education-content'>
-                <p>{education.schoolName}</p>
+                <p className='school-name'>{education.schoolName}</p>
                 <p>{education.degreeName}</p>
                 <p>{transformDate(education.startYear)} - {transformDate(education.endYear)}</p>
-                <p>{education.description}</p>
+                <p className='school-description'>{education.description}</p>
             </div>
             {editButton()}
 

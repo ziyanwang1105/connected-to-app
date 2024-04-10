@@ -34,7 +34,7 @@ const UserProfileModal = ({modalState, setModalState, profile, userId}) => {
             <div className='user-profile-modal-background' onClick={e => setModalState(null)}>
                 <div className='user-profile-modal-content' onClick={e => e.stopPropagation()}>
                     <h3>{modalState === 'Edit' ? 'Edit Profile' : 'Create Profile'}</h3>
-                    <form onSubmit={handleSubmit}>
+                    <form className='user-form' onSubmit={handleSubmit}>
                         <label>Last Name:
                             <input
                                 type="text"
@@ -48,8 +48,7 @@ const UserProfileModal = ({modalState, setModalState, profile, userId}) => {
                                 onChange={e=>setFirstName(e.target.value)} />
                         </label>
                         <label>Heading:
-                            <input
-                                type="textarea"
+                            <textarea
                                 value={heading}
                                 onChange={e=>setHeading(e.target.value)} />
                         </label>
@@ -59,7 +58,7 @@ const UserProfileModal = ({modalState, setModalState, profile, userId}) => {
                                 checked={openToWork}
                                 onChange={e=>setOpenToWork(!openToWork)}/>
                         </label>
-                        <input type="submit" value={'save'} />
+                        <input type="submit" value={'Save'} />
                         {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
 
                     </form>

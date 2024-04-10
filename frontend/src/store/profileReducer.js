@@ -40,6 +40,8 @@ export const fetchProfile = userId => (dispatch, getState) => (
             const profile = data.profile
             if(profile){
                 dispatch(showProfile(profile))
+            }else{
+                dispatch(showProfile({}))
             }
         })
 )

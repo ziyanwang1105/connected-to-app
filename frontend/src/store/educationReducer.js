@@ -5,7 +5,7 @@ import { deleteEducation, patchEducation, postEducation } from '../utils/educati
 //TYPES
 export const GETEDUCATIONS = 'education/GET_EDUCATIONS';
 export const SHOWEDUCATION = 'education/SHOW_EDUCATION';
-export const DESTROYEDUCATION = 'education/DESTROYEDUCATION';
+export const DESTROYEDUCATION = 'education/DESTROY_EDUCATION';
 //ACTION CREATORS
 
 export const getEducations = educationData =>({
