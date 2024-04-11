@@ -32,7 +32,7 @@ const SessionForm = ({sessionState}) => {
       };
       const handleDemoLogin = e =>{
         e.preventDefault();
-        dispatch(loginUser({email:'abcde@email.com', password:'password'}))
+        dispatch(loginUser({email:'demouser@email.com', password:'password'}))
           .then((data)=> navigate(`/users/${data.id}`))
       }
     return (

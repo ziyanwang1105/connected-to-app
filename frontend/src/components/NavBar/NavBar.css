@@ -29,3 +29,9 @@
   h1 {
     color:blue;
   }
+.home-session-links{
+  margin-right: 1vw;
+}
+.home-session-links > *{
+  padding-left: 1vw;
+}

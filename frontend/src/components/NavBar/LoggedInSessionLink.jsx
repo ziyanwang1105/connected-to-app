@@ -24,7 +24,7 @@ const LoggedInSessionLink = ({currentUser}) =>{
             <button className='job' />
             <div className='dropdown'>
                 <button className='dropdown-button' onClick={handleDropDownClick}>
-                    {nameInitial(currentUser.firstName, currentUser.lastName)}
+                    {'Me'}
                 </button>
                 {dropDownState && (
                     <div className='dropdown-content'>

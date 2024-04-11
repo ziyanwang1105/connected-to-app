@@ -18,9 +18,10 @@ const NavBar = props =>{
           )
         } else {
           return (
-            <span className='session-links'>
-              <NavLink to={'/login'}>Log in</NavLink>
+            <span className='home-session-links'>
               <NavLink to={'/signup'}>Sign up</NavLink>
+              <NavLink className='home-page-login' to={'/login'}>Log in</NavLink>
+
             </span>
           )
         }
