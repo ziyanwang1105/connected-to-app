@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { experiencesSelector, fetchExperiences } from '../../../store/experienceReducer';
 import ExperienceItem from './ExperienceItem';
+import ExperienceModal from './ExperienceModal';
 
 const UserExperienceBox = ({sub, currentUser}) =>{
     const dispatch = useDispatch()
@@ -32,7 +33,7 @@ const UserExperienceBox = ({sub, currentUser}) =>{
                     </li>))}
                 </ul>
             </div>
-
+            {expModalState && <ExperienceModal expModalState={expModalState} setExpModalState={setExpModalState} userId={currentUser.id} experience={experience} setExperience={setExperience} />}
         </>
     );
 };

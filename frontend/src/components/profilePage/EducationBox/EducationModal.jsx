@@ -15,9 +15,9 @@ const EducationModal = ({eduModalState, setEduModalState, education, setEducatio
     const [errors, setErrors] = useState([]);
 
     const handleCloseModal = e =>{
-        setEduModalState(null)
-        setEducation({})
-    }
+        setEduModalState(null);
+        setEducation({});
+    };
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -35,21 +35,22 @@ const EducationModal = ({eduModalState, setEduModalState, education, setEducatio
                     let data = await res.json();
                     setErrors(data);
                   });
-        }
-    }
+        };
+    };
 
     const handleDeleteClick = e =>{
-        e.preventDefault()
+        e.preventDefault();
         dispatch(removeEducation(education.id))
             .then(()=> handleCloseModal())
-    }
+    };
+
     const deleteButton = ()=>{
         if(eduModalState === 'Edit'){
             return(
                 <button onClick={handleDeleteClick}>Delete</button>
             )
-        }
-    }
+        };
+    };
 
     return (
         <>
