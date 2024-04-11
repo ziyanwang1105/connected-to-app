@@ -1,29 +1,20 @@
-import { logoutUser, selectCurrentUser } from '../store/sessionReducer';
+import { selectCurrentUser } from '../../store/sessionReducer';
+import LoggedInSessionLink from './LoggedInSessionLink';
 import './NavBar.css';
-import {useDispatch, useSelector} from 'react-redux';
-import {NavLink, useNavigate} from 'react-router-dom'
+import {useSelector} from 'react-redux';
+import {NavLink} from 'react-router-dom'
 
 const NavBar = props =>{
 
-    const dispatch = useDispatch();
     const currentUser = useSelector(selectCurrentUser);
-    const navigate = useNavigate()
     const sessionLinks = () => {
 
-        const handleLogOut = e=>{
-            dispatch(logoutUser())
-            navigate('/')
-
-        }
         if (currentUser) {
           return (
-            <span className='session-links'>
-              <p>Hello {currentUser.email}</p>
-              <NavLink to={`/users/${currentUser.id}`}>Profile</NavLink>
-              <button onClick={handleLogOut}>
-                Logout
-              </button>
-            </span>
+            <>
+              <input type="text" class="search-bar" placeholder="Search..." />
+              <LoggedInSessionLink currentUser={currentUser} />
+            </>
           )
         } else {
           return (

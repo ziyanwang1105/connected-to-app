@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import './Layout.css'
-import NavBar from './NavBar';
 import {  useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/sessionReducer';
 import SessionForm from './SessionForm';
+import NavBar from './NavBar/NavBar';
 
 
 

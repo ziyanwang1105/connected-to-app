@@ -1,7 +1,7 @@
 .nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
     position: fixed;
     top: 0;
@@ -10,7 +10,13 @@
     background-color: white;
     border-bottom: 1px solid gray;
   }
-
+  .search-bar{
+    margin-left: 2vw;
+    margin-right: 57vw;
+  }
+.nav-bar > h1{
+  margin-left: 1vw;
+}
   .session-links {
     display: flex;
     flex-direction: row;
@@ -18,7 +24,7 @@
   }
 
   .session-links > * {
-    padding-right: 5px;
+    padding-right: 1vw;
   }
   h1 {
     color:blue;
