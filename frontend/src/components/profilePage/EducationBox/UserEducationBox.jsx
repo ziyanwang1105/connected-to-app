@@ -16,8 +16,7 @@ const UserEducationBox = ({sub, currentUser}) => {
     const addButton = ()=>{
         if(currentUser.id === Number(sub)){
             return (
-                <button className='add-education-button' onClick={e=> setEduModalState('Add')}>Add Education</button>
-            )
+                <button className='add-education-button' onClick={e=> setEduModalState('Add')} />)
         }
     }
     return(

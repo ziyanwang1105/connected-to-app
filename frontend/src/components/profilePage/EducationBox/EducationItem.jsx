@@ -12,8 +12,7 @@ const EducationItem = ({education, setEduModalState, setEducation, currentUser, 
     const editButton = ()=>{
         if(currentUser.id === Number(sub)){
             return (
-                <button className='education-edit-button' onClick={handleEditClick}>Edit</button>
-            );
+                <button className='education-edit-button' onClick={handleEditClick} />)
         };
     };
 

@@ -10,7 +10,7 @@ const ExperienceItem = ({experience, setExpModalState, setExperience, currentUse
     const editButton = ()=>{
         if(currentUser.id === Number(sub)){
             return (
-                <button className='experience-edit-button' onClick={handleEditClick}>Edit</button>
+                <button className='experience-edit-button' onClick={handleEditClick} />
             );
         };
     };

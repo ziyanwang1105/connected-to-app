@@ -16,7 +16,7 @@ const UserExperienceBox = ({sub, currentUser}) =>{
     const addButton = ()=>{
         if(currentUser.id === Number(sub)){
             return (
-                <button className='add-experience-button' onClick={e=> setExpModalState('Add')}>Add Experience</button>
+                <button className='add-experience-button' onClick={e=> setExpModalState('Add')} />
             );
         };
     };

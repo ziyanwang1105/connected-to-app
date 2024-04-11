@@ -16,14 +16,14 @@ const UserProfileItem = ({sub, currentUser}) =>{
     const button = ()=>{
         if(profile.userId === currentUser.id){
             return(
-                <button className='edit-profile' onClick={e=>setModalState('Edit')}>Edit Basic Profile</button>
+                <button className='edit-button' onClick={e=>setModalState('Edit')} />
             );
         }else{
             if(currentUser.id !== Number(sub)){
-                return( <button className='edit-profile'> Connect+</button>);
+                return( <button className='connect-button'> Connect+</button>);
             }else{
                 return (
-                <button className='edit-profile' onClick={e=>setModalState('Create')}>Create Basic Profile</button>
+                <button className='add-button' onClick={e=>setModalState('Create')}/>
             );
             };
         }
