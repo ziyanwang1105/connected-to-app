@@ -26,7 +26,7 @@ const UserExperienceBox = ({sub, currentUser}) =>{
                     <h3>Experience</h3>
                     {addButton()}
                 </div>
-                <ul className='education-list'>
+                <ul className='experience-list'>
                     {Object.values(experiences).map((exp, idx)=>(<li key={idx}>
                         <ExperienceItem experience ={exp} setExpModalState={setExpModalState} setExperience={setExperience} currentUser={currentUser} sub={sub} />
                     </li>))}

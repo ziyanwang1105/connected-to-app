@@ -17,7 +17,7 @@ const Layout = props => {
             <div className='frontPageLogin'>
                 <h2>Welcome to your professional community</h2>
 
-                <SessionForm sessionState={'login'}/>
+                <SessionForm sessionState={'Login'}/>
             </div>
             <img src="/src/assets/front-page-background.jpg" alt="background" />
           </div>

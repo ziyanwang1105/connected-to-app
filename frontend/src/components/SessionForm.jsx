@@ -14,7 +14,7 @@ const SessionForm = ({sessionState}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (sessionState === 'signup') {
+        if (sessionState === 'Signup') {
           dispatch(createUser({ email, password }))
             .then((data)=> navigate(`/users/${data.id}`))
             .catch(async res =>{
@@ -30,6 +30,11 @@ const SessionForm = ({sessionState}) => {
             });
         }
       };
+      const handleDemoLogin = e =>{
+        e.preventDefault();
+        dispatch(loginUser({email:'abcde@email.com', password:'password'}))
+          .then((data)=> navigate(`/users/${data.id}`))
+      }
     return (
         <>
             <div className='session-content'>
@@ -49,6 +54,7 @@ const SessionForm = ({sessionState}) => {
                     onChange={e => setPassword(e.target.value)}
                   />
                 <input type='submit' value={sessionState} />
+                {sessionState === 'Login' && <button className='demo-login' onClick={handleDemoLogin}>Demo Login</button>}
                 </form>
                 {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
             </div>
