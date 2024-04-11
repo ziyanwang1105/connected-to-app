@@ -4,3 +4,25 @@ form{
     width: 200px;
     justify-content: center;
 }
+form > *{
+    padding: 2px;
+}
+.session-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+form > input[type="submit"]{
+    margin-top:10px;
+}
+.demo-login{
+    border-radius: 1.6rem;
+    background-color: #378fe9;
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 10px;
+}
+.demo-login:hover{
+    background-color: #0a66c2;
+}

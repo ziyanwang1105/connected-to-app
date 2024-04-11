@@ -6,8 +6,6 @@
 #  email           :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
-#  heading         :text             not null
-#  open_to_work    :boolean          default(FALSE), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -18,6 +16,16 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+
+  has_one :profile,
+    dependent: :destroy
+
+  has_many :educations,
+    dependent: :destroy
+
+  has_many :experiences,
+    dependent: :destroy
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

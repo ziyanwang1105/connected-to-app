@@ -8,7 +8,6 @@ const NavBar = props =>{
     const dispatch = useDispatch();
     const currentUser = useSelector(selectCurrentUser);
     const navigate = useNavigate()
-
     const sessionLinks = () => {
 
         const handleLogOut = e=>{

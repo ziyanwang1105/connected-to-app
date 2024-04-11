@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import './SessionForm.css';
 import { useState } from 'react';
 import { createUser, loginUser } from '../store/sessionReducer';
-import { redirect, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const SessionForm = ({sessionState}) => {
     const dispatch = useDispatch()
@@ -14,23 +14,27 @@ const SessionForm = ({sessionState}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (sessionState === 'signup') {
-            console.log('here')
+        if (sessionState === 'Signup') {
           dispatch(createUser({ email, password }))
-            .then((user)=> navigate(`/users/${user.id}`))
+            .then((data)=> navigate(`/users/${data.id}`))
             .catch(async res =>{
               let data = await res.json();
               setErrors(data);
             });
         } else {
           dispatch(loginUser({ email, password }))
-            .then((user)=> navigate(`/users/${user.id}`))
+            .then((data)=> navigate(`/users/${data.id}`))
             .catch(async res => {
               let data = await res.json();
               setErrors(data.errors);
             });
         }
       };
+      const handleDemoLogin = e =>{
+        e.preventDefault();
+        dispatch(loginUser({email:'abcde@email.com', password:'password'}))
+          .then((data)=> navigate(`/users/${data.id}`))
+      }
     return (
         <>
             <div className='session-content'>
@@ -50,6 +54,7 @@ const SessionForm = ({sessionState}) => {
                     onChange={e => setPassword(e.target.value)}
                   />
                 <input type='submit' value={sessionState} />
+                {sessionState === 'Login' && <button className='demo-login' onClick={handleDemoLogin}>Demo Login</button>}
                 </form>
                 {errors.map((err, idx) => (<p key={idx}>{err}</p>))}
             </div>
