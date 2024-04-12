@@ -4,7 +4,7 @@ import {  useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/sessionReducer';
 import SessionForm from './SessionForm';
 import NavBar from './NavBar/NavBar';
-
+import frontPageImage from '../../public/front-page-background.jpg'
 
 
 const Layout = props => {
@@ -19,7 +19,7 @@ const Layout = props => {
 
                 <SessionForm sessionState={'Login'}/>
             </div>
-            <img src="/src/assets/front-page-background.jpg" alt="background" />
+            <img src={frontPageImage} alt="background" />
           </div>
         )
     }
