@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: full_stack_project_linkedin_clone_production
-  username: full_stack_project_linkedin_clone
-  password: <%= ENV["FULL_STACK_PROJECT_LINKEDIN_CLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

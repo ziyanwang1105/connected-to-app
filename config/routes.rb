@@ -14,4 +14,6 @@ Rails.application.routes.draw do
     resources :educations, only: [:create, :update, :destroy]
     resources :experiences, only: [:create, :update, :destroy]
   end
+
+  get '*path', to: "static_pages#frontend"
 end
