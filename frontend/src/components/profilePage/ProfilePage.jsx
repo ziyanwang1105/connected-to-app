@@ -37,7 +37,7 @@ const ProfilePage = props => {
                 </div>
                 <div className='side-bar'>
                     <div className='possible-connections'>
-                        <p>People you may know</p>
+                        <p>People you may know:</p>
                         <ul className='people-may-know-list'>
                             {allUsers.map((user, idx) => (
                             <li key={idx}>
