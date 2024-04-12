@@ -3,6 +3,7 @@ import './SessionForm.css';
 import { useState } from 'react';
 import { createUser, loginUser } from '../store/sessionReducer';
 import {  useNavigate } from 'react-router-dom';
+import LGLinks from './LGLinks';
 
 const SessionForm = ({sessionState}) => {
     const dispatch = useDispatch()

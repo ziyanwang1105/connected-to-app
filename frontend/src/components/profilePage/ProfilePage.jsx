@@ -10,6 +10,7 @@ import SideBarItem from './SideBarItem';
 import UserExperienceBox from './ExperienceBox/UserExperienceBox';
 import linkedInImage from '../../assets/linkedin.svg'
 import githubImage from '../../assets/github.svg'
+import LGLinks from '../LGLinks';
 
 const ProfilePage = props => {
     const { sub } = useParams();
@@ -45,14 +46,7 @@ const ProfilePage = props => {
                             ))}
                         </ul>
                     </div>
-                    <div className='links'>
-                    <a href="https://github.com/ziyanwang1105/full-stack-project-linkedin-clone" class="github" target="_blank">
-                        <img src={githubImage} alt="github" class = "click_icon" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/zwang01/" class="linkedin" target="_blank">
-                        <img src={linkedInImage} alt="linkedin" class="click_icon" />
-                    </a>
-                    </div>
+                    <LGLinks />
                 </div>
 
             </div>

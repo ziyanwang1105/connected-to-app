@@ -1,0 +1,7 @@
+.links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 5vw;
+    margin-top: 10vh;
+}
