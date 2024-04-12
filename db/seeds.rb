@@ -19,4 +19,16 @@ demo_profile = Profile.create!(user_id: demo_user.id, last_name: 'Wang', first_n
 demo_education = Education.create!(user_id: demo_user.id, school_name: 'University of Toronto', degree_name: 'Bachelor of Science', description: 'Double major in Math and Stats', start_year: '2017-09-01', end_year: '2021-06-30')
 demo_experience = Experience.create!(user_id:demo_user.id, company_name: 'Beta Fellowship', position: 'Data Analyst', description: 'Web 3.0 start up', start_year: '2022-07-01', end_year:'2022-12-31')
 
-puts 'Seeding all other user'
+puts 'Seeding all other users'
+user1 = User.create!(email: 'email1@email.com', password:'password')
+user2 = User.create!(email: 'email2@email.com', password:'password')
+user3 = User.create!(email: 'email3@email.com', password:'password')
+user4 = User.create!(email: 'email4@email.com', password:'password')
+user5 = User.create!(email: 'email5@email.com', password:'password')
+
+puts 'Seeding all other profiles'
+profile1 = Profile.create!(user_id: user1.id, last_name: 'Cruise', first_name: 'Tom', heading: 'IMF Agent', open_to_work: false)
+profile2 = Profile.create!(user_id: user2.id, last_name: 'Vettel', first_name: 'Sebastian', heading: 'F1 Driver', open_to_work: false)
+profile3 = Profile.create!(user_id: user3.id, last_name: 'Lambert', first_name: 'Adam', heading: 'Current Queen Vocalist', open_to_work: false)
+profile4 = Profile.create!(user_id: user4.id, last_name: 'Wang', first_name: 'Ryan', heading: 'High school student', open_to_work: true)
+profile5 = Profile.create!(user_id: user5.id, last_name: 'Biber', first_name: 'Justin', heading: 'Canadian Pop Singer', open_to_work: true)
