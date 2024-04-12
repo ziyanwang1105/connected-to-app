@@ -32,3 +32,9 @@ profile2 = Profile.create!(user_id: user2.id, last_name: 'Vettel', first_name: '
 profile3 = Profile.create!(user_id: user3.id, last_name: 'Lambert', first_name: 'Adam', heading: 'Current Queen Vocalist', open_to_work: false)
 profile4 = Profile.create!(user_id: user4.id, last_name: 'Wang', first_name: 'Ryan', heading: 'High school student', open_to_work: true)
 profile5 = Profile.create!(user_id: user5.id, last_name: 'Biber', first_name: 'Justin', heading: 'Canadian Pop Singer', open_to_work: true)
+
+puts 'Seeding all other educations'
+education1 = Education.create!(user_id: user1.id, school_name: 'TOPGUN Academy', degree_name: 'TOPGUN graduate', description: 'Best graduate from the TOPGUN program', start_year: '1986-01-01', end_year: '1987-12-31')
+
+puts 'Seeding all other experiences'
+experiences1 = Experience.create!(user_id: user1.id, company_name: 'TOPGUN Academy', position: 'TOPGUN instructor', description: 'Go Watch Top Gun: Maverick', start_year: '2022-01-01', end_year: '2023-12-31')
