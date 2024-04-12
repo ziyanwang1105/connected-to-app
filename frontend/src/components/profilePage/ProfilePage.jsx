@@ -8,8 +8,6 @@ import UserEducationBox from './EducationBox/UserEducationBox';
 import { fetchAllUsers, selectOtherUsers } from '../../store/userReducer';
 import SideBarItem from './SideBarItem';
 import UserExperienceBox from './ExperienceBox/UserExperienceBox';
-import linkedInImage from '../../assets/linkedin.svg'
-import githubImage from '../../assets/github.svg'
 import LGLinks from '../LGLinks';
 
 const ProfilePage = props => {
