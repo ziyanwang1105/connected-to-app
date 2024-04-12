@@ -50,7 +50,7 @@ const UserProfileItem = ({sub, currentUser}) =>{
     return(
         <>
             <div className='user-profile-item'>
-                <div className='banner'>banner</div>
+                <div className='banner'></div>
                 <div className='circleIcon'>{initial}</div>
                 {button()}
                 {basicProfile()}

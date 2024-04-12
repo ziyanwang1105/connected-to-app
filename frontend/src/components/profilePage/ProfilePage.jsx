@@ -8,7 +8,8 @@ import UserEducationBox from './EducationBox/UserEducationBox';
 import { fetchAllUsers, selectOtherUsers } from '../../store/userReducer';
 import SideBarItem from './SideBarItem';
 import UserExperienceBox from './ExperienceBox/UserExperienceBox';
-
+import linkedInImage from '../../assets/linkedin.svg'
+import githubImage from '../../assets/github.svg'
 
 const ProfilePage = props => {
     const { sub } = useParams();
@@ -34,14 +35,24 @@ const ProfilePage = props => {
                     <UserExperienceBox sub={sub} currentUser={currentUser} />
                 </div>
                 <div className='side-bar'>
-                    <p>People you may know</p>
-                    <ul className='people-may-know-list'>
-                        {allUsers.map((user, idx) => (
-                        <li key={idx}>
-                            <SideBarItem user={user} />
-                        </li>
-                        ))}
-                    </ul>
+                    <div className='possible-connections'>
+                        <p>People you may know</p>
+                        <ul className='people-may-know-list'>
+                            {allUsers.map((user, idx) => (
+                            <li key={idx}>
+                                <SideBarItem user={user} />
+                            </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className='links'>
+                    <a href="https://github.com/ziyanwang1105/full-stack-project-linkedin-clone" class="github" target="_blank">
+                        <img src={githubImage} alt="github" class = "click_icon" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/zwang01/" class="linkedin" target="_blank">
+                        <img src={linkedInImage} alt="linkedin" class="click_icon" />
+                    </a>
+                    </div>
                 </div>
 
             </div>

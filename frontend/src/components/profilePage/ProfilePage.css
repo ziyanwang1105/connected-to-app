@@ -19,3 +19,6 @@
     height: fit-content;
     padding-bottom: 10vh;
 }
+.possible-connections > p{
+    padding-left: 1vw;
+}
