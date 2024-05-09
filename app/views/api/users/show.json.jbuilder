@@ -30,3 +30,14 @@ if @user.experiences
     end
   end
 end
+
+if @user.postings
+
+  json.postings do
+    @user.postings.each do |posting|
+      json.set! posting.id do
+        json.extract! posting, :id, :user_id, :title, :body, :job_posting, :created_at
+      end
+    end
+  end
+end

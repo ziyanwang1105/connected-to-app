@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :profiles, only: [:create, :update]
     resources :educations, only: [:create, :update, :destroy]
     resources :experiences, only: [:create, :update, :destroy]
+    resources :postings, only: [:index, :show, :create, :update, :destroy]
   end
 
   get '*path', to: "static_pages#frontend"

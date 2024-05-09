@@ -17,16 +17,35 @@ class Api::PostingsController < ApplicationController
     end
 
     def create
-
+        @posting = Posting.new(experience_params)
+        if @posting.save
+            @user = @posting.user
+            render :show
+        else
+            render json: @posting.errors.full_messages, status: 422
+        end
     end
 
     def update
-
+        @posting = Posting.find_by(id: params[:id])
+        if @posting && @posting.update(experience_params)
+            @user = @posting.user
+            render :show
+        else
+            render json: @posting.errors.full_messages, status: 422
+        end
 
     end
 
     def destroy
-
+        @posting = Posting.find_by(id: params[:id])
+        if @posting && @posting.destroy!
+            # @user = @experience.user
+            # render 'api/users/show'
+            head :no_content
+        else
+            render json: @posting.errors.full_messages, status: 422
+        end
     end
 
     private
