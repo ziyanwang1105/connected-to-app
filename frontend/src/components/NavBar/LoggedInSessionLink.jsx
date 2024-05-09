@@ -28,7 +28,7 @@ const LoggedInSessionLink = ({currentUser}) =>{
                 </button>
                 {dropDownState && (
                     <div className='dropdown-content'>
-                        <NavLink to={`/users/${currentUser.id}`}>Profile</NavLink>
+                        <NavLink to={`/users/${currentUser.id}`} onClick={e=>setDropDownState(!dropDownState)}>Profile</NavLink>
                         <button onClick={handleLogOut}>
                             Logout
                         </button>
