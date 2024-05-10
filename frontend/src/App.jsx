@@ -3,6 +3,8 @@ import Layout from './components/Layout'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import SessionForm from './components/SessionForm'
 import ProfilePage from './components/profilePage/ProfilePage'
+import FeedPage from './components/Postings/FeedPage'
+import PostingShow from './components/Postings/PostingShow'
 
 
 function App() {
@@ -16,6 +18,12 @@ function App() {
   }, {
     path: '/users', element: <Layout />, children: [{
       path: ':sub', element: <ProfilePage />
+    }]
+  },{
+    path: '/feed', element: <Layout />, children:[{
+      path: ':userId', element: <FeedPage />
+    },{
+      path: ':postingId', element: <PostingShow />
     }]
   }])
   return (
