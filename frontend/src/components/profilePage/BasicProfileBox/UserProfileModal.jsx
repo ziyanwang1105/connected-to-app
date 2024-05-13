@@ -35,24 +35,24 @@ const UserProfileModal = ({modalState, setModalState, profile, userId}) => {
                 <div className='user-profile-modal-content' onClick={e => e.stopPropagation()}>
                     <h3>{modalState === 'Edit' ? 'Edit Profile' : 'Create Profile'}</h3>
                     <form className='user-form' onSubmit={handleSubmit}>
-                        <label>Last Name:
+                        <label>Last Name:*
                             <input
                                 type="text"
                                 value={lastName}
                                 onChange={e=>setLastName(e.target.value)} />
                         </label>
-                        <label>First Name:
+                        <label>First Name*
                             <input
                                 type="text"
                                 value={firstName}
                                 onChange={e=>setFirstName(e.target.value)} />
                         </label>
-                        <label>Heading:
+                        <label>Heading*
                             <textarea
                                 value={heading}
                                 onChange={e=>setHeading(e.target.value)} />
                         </label>
-                        <label>Open to Work
+                        <label>Open to Work*
                             <input
                                 type="checkbox"
                                 checked={openToWork}

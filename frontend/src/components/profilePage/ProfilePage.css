@@ -1,7 +1,8 @@
 .profile-page{
     display: flex;
     flex-direction: row;
-    padding-left: 2vw;
+    padding-left: 13vw;
+    padding-right: 13vw;
     background-color: inherit;
 }
 
