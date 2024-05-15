@@ -52,6 +52,9 @@ textarea{
     margin-top: 10vh;
 }
 .footer > .links{
+    margin-left: 5px;
+    margin-right: 5px;
+    border-top: 1px solid gray;
     height: fit-content;
     display: flex;
     justify-content: center;
