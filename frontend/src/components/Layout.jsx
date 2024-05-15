@@ -5,6 +5,7 @@ import { selectCurrentUser } from '../store/sessionReducer';
 import SessionForm from './SessionForm';
 import NavBar from './NavBar/NavBar';
 import frontPageImage from '../../public/front-page-background.jpg'
+import LGLinks from './LGLinks';
 
 
 const Layout = props => {
@@ -30,6 +31,9 @@ const Layout = props => {
 
           {!currentUser && frontPage()}
           <Outlet />
+          <div className='footer'>
+            <LGLinks />
+          </div>
         </div>
       </div>
     );
