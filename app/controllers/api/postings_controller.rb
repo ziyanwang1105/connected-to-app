@@ -17,7 +17,7 @@ class Api::PostingsController < ApplicationController
     end
 
     def create
-        @posting = Posting.new(experience_params)
+        @posting = Posting.new(posting_params)
         if @posting.save
             @user = @posting.user
             render :show
@@ -28,7 +28,7 @@ class Api::PostingsController < ApplicationController
 
     def update
         @posting = Posting.find_by(id: params[:id])
-        if @posting && @posting.update(experience_params)
+        if @posting && @posting.update(posting_params)
             @user = @posting.user
             render :show
         else
